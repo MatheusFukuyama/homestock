@@ -91,7 +91,7 @@ app.get("/receita/:id", async (req, res) => {
 })
 
 app.post("/receita/inserir", async(req, res) => {
-    const data =  req.body
+    const data =  await req.body
     await addDoc(produtosCol, data)
     res.send({msg: "Produto inserido"})
 })
