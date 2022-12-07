@@ -12,4 +12,4 @@ app.post("/create", async(req, res) => {
     res.send({msg: "Produto inserido"})
 })
 
-app.listen(4000, () =>  console.log("Servidor rodando"))
+app.listen(process.env.PORT || 8080, () =>  console.log("Servidor rodando"))
