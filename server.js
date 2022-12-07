@@ -38,6 +38,7 @@ app.get("/produto/:id", async (req, res) => {
 
 app.post("/produto/inserir", async(req, res) => {
     const data =  req.body
+    console.log(data, req)
     await addDoc(produtosCol, data)
     res.send({msg: "Produto inserido"})
 })
