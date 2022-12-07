@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
-const firebase = require('firebase')
+const {initializeApp} = require('firebase/app')
+const {getFirestore, collection, getDocs, addDoc} = require('firebase/firestore')
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -16,6 +17,17 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig)
-const db = firebase.firestore()
-const Produto = db.collection("Produto")
+const app = initializeApp(firebaseConfig)
+const db = getFirestore(app)
+
+// async function getProdutos(db) {
+//   const produtosCol = collection(db, 'produtos')
+//   const produtosSnapshot = await getDocs(produtosCol);
+//   const produtosLista = produtosSnapshot.docs.map(doc => doc.data())
+//   return produtoLista
+// }
+
+const produtosCol = collection(db, "produtos")
+const receitasCol = collection(db, "receitas")
+
+module.exports = {produtosCol, receitasCol, db}
