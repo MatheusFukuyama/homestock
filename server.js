@@ -5,6 +5,7 @@ const {produtosCol, receitasCol, db} = require('./config')
 const bodyparser = require('body-parser')
 const app = express()
 
+app.use(express.json());
 app.use(bodyparser.urlencoded({ extended : true}));
 app.use(cors())
 
